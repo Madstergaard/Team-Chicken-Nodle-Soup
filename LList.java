@@ -40,8 +40,16 @@ public class LList implements List { //your List interface must be in same dir
 
     //******* removes the node at position i and returns its cargo *******
     public String remove( int i ){
-	//needs new code
-	return "hi";
+	DLLNode temp = _head;
+	for (int j = 0; j < i; j++){
+	    temp = temp.getNext();}
+	if (i > 0){
+	    temp.getPrev().setNext(temp.getNext());}
+	if (i < _size - 1){
+	    temp.getNext().setPrev(temp.getPrev());}
+        
+	_size += -1;
+	return temp.getCargo();
     }
     
     
@@ -96,33 +104,33 @@ public class LList implements List { //your List interface must be in same dir
     //main method for testing
     public static void main( String[] args ) {
 
-	// LList james = new LList();
+	LList james = new LList();
 
-	// System.out.println( james );
-	// System.out.println( "size: " + james.size() );
+	System.out.println( james );
+	System.out.println( "size: " + james.size() );
 
-	// james.add("beat");
-	// System.out.println( james );
-	// System.out.println( "size: " + james.size() );
+	james.add("beat");
+	System.out.println( james );
+	System.out.println( "size: " + james.size() );
 
-	// james.add("a");
-	// System.out.println( james );
-	// System.out.println( "size: " + james.size() );
+	james.add("a");
+	System.out.println( james );
+	System.out.println( "size: " + james.size() );
 
-	// james.add("need");
-	// System.out.println( james );
-	// System.out.println( "size: " + james.size() );
+	james.add("need");
+	System.out.println( james );
+	System.out.println( "size: " + james.size() );
 
-	// james.add("I");
-	// System.out.println( james );
-	// System.out.println( "size: " + james.size() );
+	james.add("I");
+	System.out.println( james );
+	System.out.println( "size: " + james.size() );
 
-	// System.out.println( "2nd item is: " + james.get(1) );
+	System.out.println( "2nd item is: " + james.get(1) );
 
-	// james.set( 1, "got" );
-	// System.out.println( "...and now 2nd item is: " + james.set(1,"got") );
+	james.set( 1, "got" );
+	System.out.println( "...and now 2nd item is: " + james.set(1,"got") );
 
-	// System.out.println( james );
+	System.out.println( james );
 	
 	
 	// ---------------------- v2 additions ---------------------------                      
@@ -134,36 +142,36 @@ public class LList implements List { //your List interface must be in same dir
             //System.out.println(l1);                                                           
         }
 
-        System.out.print("l1: \t");
-        System.out.println(l1);
+        // System.out.print("l1: \t");
+        // System.out.println(l1);
 
-        System.out.println("--------------------ADDING--------------------");
+        // System.out.println("--------------------ADDING--------------------");
 
-        l1.add(4,"JOHN CENAAA");
-        System.out.println(l1);
+        // l1.add(4,"JOHN CENAAA");
+        // System.out.println(l1);
 
 
-        l1.add(0, "add at 0");
-	System.out.println(l1);
+        // l1.add(0, "add at 0");
+	// System.out.println(l1);
 
-        l1.add(1, "add at 1");
-        System.out.println(l1);
+        // l1.add(1, "add at 1");
+        // System.out.println(l1);
 
-        l1.add(l1.size(), "add at end"); //HERE IS WHERE MY QUESTION REFERENCES
-        System.out.println(l1);
+        // l1.add(l1.size(), "add at end"); //HERE IS WHERE MY QUESTION REFERENCES
+        // System.out.println(l1);
 	
         // System.out.println("--------------------REMOVING--------------------");
-        // l1.remove(1);
-        // System.out.println(l1);
+        l1.remove(1);
+        System.out.println(l1);
 
-        // l1.remove(0);
-        // System.out.println(l1);
+        l1.remove(0);
+        System.out.println(l1);
 
-        // l1.remove(4);
-        // System.out.println(l1);
+        l1.remove(4);
+        System.out.println(l1);
 
-        // l1.remove(l1.size() - 1);
-        // System.out.println(l1);
+        l1.remove(l1.size() - 1);
+        System.out.println(l1);
     }
 
 }//end class LList
