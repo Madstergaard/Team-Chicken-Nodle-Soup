@@ -21,6 +21,8 @@ public class LList implements List { //your List interface must be in same dir
     //--------------v  List interface methods  v--------------
     public boolean add( String newVal ) { 
 	DLLNode tmp = new DLLNode( newVal, _head,_butt );
+	if (_size > 0){
+	    _head.setPrev(tmp);}
 	_head = tmp;
 	_size++;
 
