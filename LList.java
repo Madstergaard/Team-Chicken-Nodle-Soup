@@ -45,7 +45,14 @@ public class LList implements List { //your List interface must be in same dir
 	    dummy.getNext().setPrev(newNode);
 	}
 	
-
+	/* newNode.setNext(dummy);
+	newNode.setPrev(dummy.getPrev());
+	dummy.setPrev(newNode);
+	if (dummy.getPrev() != null){
+	    dummy.getPrev().setNext(newNode);
+	}
+	_size++;
+	*/
     }
 	
     	
