@@ -6,11 +6,13 @@
 public class LList implements List { //your List interface must be in same dir
 
     //instance vars
+    private LLNode _butt;
     private LLNode _head;
     private int _size;
 
     // constructor -- initializes instance vars
     public LList( ) {
+	_butt = null;
 	_head = null; //at birth, a list has no elements
 	_size = 0;
     }
@@ -27,34 +29,14 @@ public class LList implements List { //your List interface must be in same dir
 
 	//******* inserts a node containing s at position I *******
     public void add( int i, String s ){
-    	LLNode newNode = new LLNode(s, null);
-	LLNode dummy = _head;
-	for (int num = 0; num < i; num++){
-	    dummy.setCargo(dummy.getNext());
-	    dummy.setNext(
-    	while (topHalf.get(0).getCargo() != null){
-    		tmp = _head.getCargo();
-    		_head.setCargo(topHalf.getCargo());
-    		_head.setNext(tmp);
-    		topHalf = topHalf.getNext();
-    	}
+	//needs new code
+    	
     }	 
 
 
     //******* removes the node at position i and returns its cargo *******
     public String remove( int i ){
-    	int desiredIndex = _size;
-    	LLNode topHalf = new LLNode();
-    	while (desiredIndex > i){
-    		topHalf.get(0).add(_head.getCargo());
-    		_head = _head.getNext();
-    		desiredIndex--;
-    	}
-    	_head = _head.getNext();
-    	while (topHalf.getCargo() != null){
-    		_head.add(topHalf.getCargo());
-    		topHalf = topHalf.getNext();
-    	}
+	//needs new code
     }
     
     
@@ -77,23 +59,7 @@ public class LList implements List { //your List interface must be in same dir
 
 
     public String set( int index, String newVal ) { 
-
-	if ( index < 0 || index >= size() )
-	    throw new IndexOutOfBoundsException();
-
-	LLNode tmp = _head; //create alias to head
-
-	//walk to desired node
-	for( int i=0; i < index; i++ )
-	    tmp = tmp.getNext();
-
-	//store target node's cargo
-	String oldVal = tmp.getCargo();
-	
-	//modify target node's cargo
-	tmp.setCargo( newVal );
-	
-	return oldVal;
+	//rewrite
     } 
 
 
