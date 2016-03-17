@@ -32,12 +32,7 @@ public class LList implements List { //your List interface must be in same dir
 
 	//******* inserts a node containing s at position I *******
     public void add( int i, String s ){
-	DLLNode temp = _head;
-	for (int j = 0; j < i; j++){
-	    temp = temp.getNext();}
-	DLLNode newNode = new DLLNode(s, temp.getNext(), temp.getPrev());
-	temp.getPrev().setNext(newNode);
-	temp.getNext().setPrev(newNode);}
+	return;}
 	//needs new code
     	
 
@@ -68,9 +63,14 @@ public class LList implements List { //your List interface must be in same dir
     } 
 
 
-    public String set( int index, String newVal ) { 
-	//rewrite
-	return "hi";
+    public String set( int i, String s ) { 
+        DLLNode temp = _head;
+	for (int j = 0; j < i; j++){
+	    temp = temp.getNext();}
+	DLLNode newNode = new DLLNode(s, temp.getNext(), temp.getPrev());
+	temp.getPrev().setNext(newNode);
+	temp.getNext().setPrev(newNode);
+	return s;
     } 
 
 
