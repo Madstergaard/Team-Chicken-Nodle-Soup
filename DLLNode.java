@@ -1,5 +1,5 @@
 /*****************************************************
- * class LLNode
+ * class DLLNode
  * Implements a node, for use in lists and other container classes.
  * Stores its data as a String
  *****************************************************/
@@ -11,7 +11,7 @@ public class DLLNode {
     private DLLNode _prevNode;
 
     // constructor -- initializes instance vars
-    public LLNode( String value, DLLNode next,DLLNode prev ) {
+    public DLLNode( String value, DLLNode next,DLLNode prev ) {
 	_cargo = value;
 	_nextNode = next;
 	_prevNode = prev;
@@ -81,4 +81,4 @@ public class DLLNode {
 
     }//end main
 
-}//end class LLNode
+}//end class DLLNode
