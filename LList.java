@@ -6,8 +6,8 @@
 public class LList implements List { //your List interface must be in same dir
 
     //instance vars
-    private LLNode _butt;
-    private LLNode _head;
+    private DLLNode _butt;
+    private DLLNode _head;
     private int _size;
 
     // constructor -- initializes instance vars
@@ -20,23 +20,31 @@ public class LList implements List { //your List interface must be in same dir
 
     //--------------v  List interface methods  v--------------
     public boolean add( String newVal ) { 
-	LLNode tmp = new LLNode( newVal, _head );
+	DLLNode tmp = new DLLNode( newVal, _head,_butt );
 	_head = tmp;
 	_size++;
-	return true;
+
+       return true;
     } 
 
 
 	//******* inserts a node containing s at position I *******
     public void add( int i, String s ){
+	DLLNode temp = _head;
+	for (int j = 0; j < i; j++){
+	    temp = temp.getNext();}
+	DLLNode newNode = new DLLNode(s, temp.getNext(), temp.getPrev());
+	temp.getPrev().setNext(newNode);
+	temp.getNext().setPrev(newNode);}
 	//needs new code
     	
-    }	 
+
 
 
     //******* removes the node at position i and returns its cargo *******
     public String remove( int i ){
 	//needs new code
+	return "hi";
     }
     
     
@@ -46,7 +54,7 @@ public class LList implements List { //your List interface must be in same dir
 	    throw new IndexOutOfBoundsException();
 
 	String retVal;
-	LLNode tmp = _head; //create alias to head
+	DLLNode tmp = _head; //create alias to head
 
 	//walk to desired node
 	for( int i=0; i < index; i++ )
@@ -60,6 +68,7 @@ public class LList implements List { //your List interface must be in same dir
 
     public String set( int index, String newVal ) { 
 	//rewrite
+	return "hi";
     } 
 
 
@@ -72,7 +81,7 @@ public class LList implements List { //your List interface must be in same dir
     // override inherited toString
     public String toString() { 
 	String retStr = "HEAD->";
-	LLNode tmp = _head; //init tr
+	DLLNode tmp = _head; //init tr
 	while( tmp != null ) {
 	    retStr += tmp.getCargo() + "->";
 	    tmp = tmp.getNext();
@@ -85,33 +94,33 @@ public class LList implements List { //your List interface must be in same dir
     //main method for testing
     public static void main( String[] args ) {
 
-	LList james = new LList();
+	// LList james = new LList();
 
-	System.out.println( james );
-	System.out.println( "size: " + james.size() );
+	// System.out.println( james );
+	// System.out.println( "size: " + james.size() );
 
-	james.add("beat");
-	System.out.println( james );
-	System.out.println( "size: " + james.size() );
+	// james.add("beat");
+	// System.out.println( james );
+	// System.out.println( "size: " + james.size() );
 
-	james.add("a");
-	System.out.println( james );
-	System.out.println( "size: " + james.size() );
+	// james.add("a");
+	// System.out.println( james );
+	// System.out.println( "size: " + james.size() );
 
-	james.add("need");
-	System.out.println( james );
-	System.out.println( "size: " + james.size() );
+	// james.add("need");
+	// System.out.println( james );
+	// System.out.println( "size: " + james.size() );
 
-	james.add("I");
-	System.out.println( james );
-	System.out.println( "size: " + james.size() );
+	// james.add("I");
+	// System.out.println( james );
+	// System.out.println( "size: " + james.size() );
 
-	System.out.println( "2nd item is: " + james.get(1) );
+	// System.out.println( "2nd item is: " + james.get(1) );
 
-	james.set( 1, "got" );
-	System.out.println( "...and now 2nd item is: " + james.set(1,"got") );
+	// james.set( 1, "got" );
+	// System.out.println( "...and now 2nd item is: " + james.set(1,"got") );
 
-	System.out.println( james );
+	// System.out.println( james );
 	
 	
 	// ---------------------- v2 additions ---------------------------                      
@@ -140,19 +149,19 @@ public class LList implements List { //your List interface must be in same dir
 
         l1.add(l1.size(), "add at end"); //HERE IS WHERE MY QUESTION REFERENCES
         System.out.println(l1);
+	
+        // System.out.println("--------------------REMOVING--------------------");
+        // l1.remove(1);
+        // System.out.println(l1);
 
-        System.out.println("--------------------REMOVING--------------------");
-        l1.remove(1);
-        System.out.println(l1);
+        // l1.remove(0);
+        // System.out.println(l1);
 
-        l1.remove(0);
-        System.out.println(l1);
+        // l1.remove(4);
+        // System.out.println(l1);
 
-        l1.remove(4);
-        System.out.println(l1);
-
-        l1.remove(l1.size() - 1);
-        System.out.println(l1);
+        // l1.remove(l1.size() - 1);
+        // System.out.println(l1);
     }
 
 }//end class LList

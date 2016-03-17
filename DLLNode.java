@@ -33,7 +33,7 @@ public class DLLNode {
     }
     public DLLNode setPrev(DLLNode newPrev){
 	DLLNode foo = getNext();
-	_prevNode = newNext;
+	_prevNode = newPrev;
 	return foo;
     }
     public DLLNode setNext( DLLNode newNext ) {
@@ -54,13 +54,13 @@ public class DLLNode {
 	//Below is an exercise in creating a linked list...
 
 	//Create a node
-	DLLNode first = new DLLNode( "cat", null );
+	DLLNode first = new DLLNode( "cat", null,null );
 
 	//Create a new node after the first
-	first.setNext( new DLLNode( "dog", null ) );
+	first.setNext( new DLLNode( "dog", null,null ) );
 
 	//Create a third node after the second
-	first.getNext().setNext( new DLLNode( "cow", null ) );
+	first.getNext().setNext( new DLLNode( "cow", null,null ) );
 
 	/* A naive list traversal, has side effect of destroying list
 	while( first != null ) {
