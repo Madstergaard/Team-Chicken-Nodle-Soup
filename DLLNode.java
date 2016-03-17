@@ -1,3 +1,8 @@
+// Team Chicken Nodle Soup -- Matt So and Maddie Ostergaard
+// APCS2 pd9
+// HW14a -- On the DLL
+// 2016-03-17
+
 /*****************************************************
  * class DLLNode
  * Implements a node, for use in lists and other container classes.
