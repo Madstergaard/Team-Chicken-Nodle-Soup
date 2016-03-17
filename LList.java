@@ -30,10 +30,24 @@ public class LList implements List { //your List interface must be in same dir
     } 
 
 
-	//******* inserts a node containing s at position I *******
+    //******* inserts a node containing s at position I *******
     public void add( int i, String s ){
-	return;}
-	//needs new code
+       	DLLNode dummy = _head;
+	DLLNode newNode = new DLLNode(s,null,null);
+	for (int n  = 0; n < i - 1; n++){
+	    dummy = dummy.getNext();
+	}
+
+        newNode.setNext(dummy.getNext());
+	newNode.setPrev(dummy);
+	dummy.setNext(newNode);
+	if (dummy.getNext() != null){
+	    dummy.getNext().setPrev(newNode);
+	}
+	
+
+    }
+	
     	
 
 
@@ -44,9 +58,11 @@ public class LList implements List { //your List interface must be in same dir
 	for (int j = 0; j < i; j++){
 	    temp = temp.getNext();}
 	if (i > 0){
-	    temp.getPrev().setNext(temp.getNext());}
+	    try {temp.getPrev().setNext(temp.getNext());}
+	    catch (NullPointerException e) {}}
 	if (i < _size - 1){
-	    temp.getNext().setPrev(temp.getPrev());}
+	    try {temp.getNext().setPrev(temp.getPrev());}
+	    catch (NullPointerException e) {}}
         
 	_size += -1;
 	return temp.getCargo();
@@ -93,7 +109,10 @@ public class LList implements List { //your List interface must be in same dir
 	String retStr = "HEAD->";
 	DLLNode tmp = _head; //init tr
 	while( tmp != null ) {
-	    retStr += tmp.getCargo() + "->";
+	    if (tmp.getNext() != null){
+		retStr += tmp.getCargo() + "<->";}
+	    else {
+		retStr += tmp.getCargo() + "<-";}
 	    tmp = tmp.getNext();
 	}
 	retStr += "NULL";
@@ -103,7 +122,7 @@ public class LList implements List { //your List interface must be in same dir
 
     //main method for testing
     public static void main( String[] args ) {
-
+	/*
 	LList james = new LList();
 
 	System.out.println( james );
@@ -132,7 +151,7 @@ public class LList implements List { //your List interface must be in same dir
 
 	System.out.println( james );
 	
-	
+	*/
 	// ---------------------- v2 additions ---------------------------                      
 
         List l1 = new LList();
@@ -142,25 +161,25 @@ public class LList implements List { //your List interface must be in same dir
             //System.out.println(l1);                                                           
         }
 
-        // System.out.print("l1: \t");
-        // System.out.println(l1);
+        System.out.print("l1: \t");
+        System.out.println(l1);
 
-        // System.out.println("--------------------ADDING--------------------");
+        System.out.println("--------------------ADDING--------------------");
 
-        // l1.add(4,"JOHN CENAAA");
-        // System.out.println(l1);
+        l1.add(4,"JOHN CENAAA");
+        System.out.println(l1);
 
 
-        // l1.add(0, "add at 0");
-	// System.out.println(l1);
+        l1.add(0, "add at 0");
+	System.out.println(l1);
 
-        // l1.add(1, "add at 1");
-        // System.out.println(l1);
+        l1.add(2, "add at 2");
+        System.out.println(l1);
 
-        // l1.add(l1.size(), "add at end"); //HERE IS WHERE MY QUESTION REFERENCES
-        // System.out.println(l1);
+        l1.add(l1.size(), "add at end"); 
+        System.out.println(l1);
 	
-        // System.out.println("--------------------REMOVING--------------------");
+        System.out.println("--------------------REMOVING--------------------");
         l1.remove(1);
         System.out.println(l1);
 
