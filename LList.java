@@ -32,9 +32,11 @@ public class LList implements List { //your List interface must be in same dir
 
     //******* inserts a node containing s at position I *******
     public void add( int i, String s ){
+	if (i == 0){
+	    add(s);}
        	DLLNode dummy = _head;
 	DLLNode newNode = new DLLNode(s,null,null);
-	for (int n  = 0; n < i - 1; n++){
+	for (int n  = 0; n < i - 1 ; n++){
 	    dummy = dummy.getNext();
 	}
 
@@ -50,9 +52,9 @@ public class LList implements List { //your List interface must be in same dir
 	dummy.setPrev(newNode);
 	if (dummy.getPrev() != null){
 	    dummy.getPrev().setNext(newNode);
-	}
+	    }*/
 	_size++;
-	*/
+	
     }
 	
     	
