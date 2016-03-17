@@ -1,9 +1,14 @@
+// Team Chicken Nodle Soup -- Matt So and Maddie Ostergaard
+// APCS2 pd9
+// HW14b -- On the DLL
+// 2016-03-17
+
 /*****************************************************
  * class LList
  * Implements a linked list of LLNodes, each containing String data
  *****************************************************/
 
-public class LList implements List { //your List interface must be in same dir
+public class LList<T> implements List<T> { //your List interface must be in same dir
 
     //instance vars
     private DLLNode _butt;
@@ -19,7 +24,7 @@ public class LList implements List { //your List interface must be in same dir
 
 
     //--------------v  List interface methods  v--------------
-    public boolean add( String newVal ) { 
+    public boolean add( T newVal ) { 
 	DLLNode tmp = new DLLNode( newVal, _head,_butt );
 	if (_size > 0){
 	    _head.setPrev(tmp);}
@@ -31,7 +36,7 @@ public class LList implements List { //your List interface must be in same dir
 
 
     //******* inserts a node containing s at position I *******
-    public void add( int i, String s ){
+    public void add( int i, T s ){
 	if (i == 0){
 	    add(s);}
        	DLLNode dummy = _head;
@@ -62,7 +67,7 @@ public class LList implements List { //your List interface must be in same dir
 
 
     //******* removes the node at position i and returns its cargo *******
-    public String remove( int i ){
+    public T remove( int i ){
 	DLLNode temp = _head;
 	for (int j = 0; j < i; j++){
 	    temp = temp.getNext();}
@@ -78,12 +83,12 @@ public class LList implements List { //your List interface must be in same dir
     }
     
     
-    public String get( int index ) { 
+    public T get( int index ) { 
 
 	if ( index < 0 || index >= size() )
 	    throw new IndexOutOfBoundsException();
 
-	String retVal;
+	T retVal;
 	DLLNode tmp = _head; //create alias to head
 
 	//walk to desired node
@@ -96,7 +101,7 @@ public class LList implements List { //your List interface must be in same dir
     } 
 
 
-    public String set( int i, String s ) { 
+    public T set( int i, T s ) { 
         DLLNode temp = _head;
 	for (int j = 0; j < i; j++){
 	    temp = temp.getNext();}

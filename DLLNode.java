@@ -9,14 +9,14 @@
  * Stores its data as a String
  *****************************************************/
 
-public class DLLNode {
+public class DLLNode<T> {
 
-    private String _cargo;    //cargo may only be of type String
+    private T _cargo;    //cargo may only be of type T
     private DLLNode _nextNode; //pointer to next LLNode
     private DLLNode _prevNode;
 
     // constructor -- initializes instance vars
-    public DLLNode( String value, DLLNode next,DLLNode prev ) {
+    public DLLNode( T value, DLLNode next,DLLNode prev ) {
 	_cargo = value;
 	_nextNode = next;
 	_prevNode = prev;
@@ -24,15 +24,15 @@ public class DLLNode {
 
 
     //--------------v  ACCESSORS  v--------------
-    public String getCargo() { return _cargo; }
+    public T getCargo() { return _cargo; }
     public DLLNode getPrev() {return _prevNode;}
     public DLLNode getNext() { return _nextNode; }
     //--------------^  ACCESSORS  ^--------------
 
 
     //--------------v  MUTATORS  v--------------
-    public String setCargo( String newCargo ) {
-	String foo = getCargo();
+    public T setCargo( T newCargo ) {
+	T foo = getCargo();
 	_cargo = newCargo;
 	return foo;
     }
@@ -49,7 +49,7 @@ public class DLLNode {
     //--------------^  MUTATORS  ^--------------
 
 
-    // override inherited toString
+    // override inherited toT
     public String toString() { return _cargo.toString(); }
 
 
