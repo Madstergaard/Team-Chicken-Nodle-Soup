@@ -34,6 +34,17 @@ public class LList<T> implements List<T> { //your List interface must be in same
        return true;
     } 
 
+    public boolean addAtEnd(T newVal){
+	DLLNode tmp = new DLLNode( newVal, _head, _butt );
+	if (_size > 0){
+	    _butt.setNext(tmp);}
+	_butt = tmp;
+	_size++;
+
+       return true;
+    } 
+
+
 
     //******* inserts a node containing s at position I *******
     public void add( int i, T s ){
@@ -63,9 +74,6 @@ public class LList<T> implements List<T> { //your List interface must be in same
     }
 	
     	
-
-
-
     //******* removes the node at position i and returns its cargo *******
     public T remove( int i ){
 	DLLNode temp = _head;
@@ -79,7 +87,7 @@ public class LList<T> implements List<T> { //your List interface must be in same
 	    catch (NullPointerException e) {}}
         
 	_size += -1;
-	return temp.getCargo();
+	return (T) temp.getCargo(); 
     }
     
     
@@ -96,7 +104,7 @@ public class LList<T> implements List<T> { //your List interface must be in same
 	    tmp = tmp.getNext();
 
 	//check target node's cargo hold
-	retVal = tmp.getCargo();
+	retVal = (T) tmp.getCargo();
 	return retVal;
     } 
 
