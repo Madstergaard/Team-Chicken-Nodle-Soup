@@ -1,7 +1,7 @@
 // Team Chicken Nodle Soup -- Matt So and Maddie Ostergaard
 // APCS2 pd9
-// HW14b -- On the DLL
-// 2016-03-17
+// HW15 -- Generically Speaking
+// 2016-03-18
 
 /*****************************************************
  * class LList
