@@ -36,6 +36,9 @@ public class LList<T> implements List<T> { //your List interface must be in same
 
     public boolean addAtEnd(T newVal){
 	DLLNode tmp = new DLLNode( newVal, _head, _butt );
+	if (_size == 0){
+	    _head = tmp;
+	}
 	if (_size > 0){
 	    _butt.setNext(tmp);}
 	_butt = tmp;
@@ -130,7 +133,7 @@ public class LList<T> implements List<T> { //your List interface must be in same
     public String toString() { 
 	String retStr = "HEAD->";
 	DLLNode tmp = _head; //init tr
-	while( tmp != null ) {
+	for (int i = 0; i < _size && tmp != null; i++) {
 	    if (tmp.getNext() != null){
 		retStr += tmp.getCargo() + "<->";}
 	    else {
@@ -144,10 +147,9 @@ public class LList<T> implements List<T> { //your List interface must be in same
 
     //main method for testing
     public static void main( String[] args ) {
-	/*
+	
 	LList james = new LList();
 
-	System.out.println( james );
 	System.out.println( "size: " + james.size() );
 
 	james.add("beat");
@@ -172,8 +174,48 @@ public class LList<T> implements List<T> { //your List interface must be in same
 	System.out.println( "...and now 2nd item is: " + james.set(1,"got") );
 
 	System.out.println( james );
+
+	james = new LList();
 	
-	*/
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~\n"+james );
+	
+
+	System.out.println( james );
+	System.out.println( "size: " + james.size() );
+
+	james.addAtEnd("hold");
+	System.out.println( james );
+	System.out.println( "size: " + james.size() );
+
+	james.addAtEnd("it");
+	System.out.println( james );
+	System.out.println( "size: " + james.size() );
+
+	james.addAtEnd("don't");
+	System.out.println( james );
+	System.out.println( "size: " + james.size() );
+
+	james.addAtEnd("drop");
+	System.out.println( james );
+	System.out.println( "size: " + james.size() );
+
+	james.addAtEnd("it");
+	System.out.println( james );
+	System.out.println( "size: " + james.size() );
+
+	System.out.println( "2nd item is: " + james.get(1) );
+
+	james.set( 1, "your fire" );
+	System.out.println( "...and now 2nd item is: " + james.set(1,"your fire") );
+
+	System.out.println( james );
+
+	
+
+
+	
+	
+	/*/
 	// ---------------------- v2 additions ---------------------------                      
 
         List l1 = new LList();
@@ -212,7 +254,7 @@ public class LList<T> implements List<T> { //your List interface must be in same
         System.out.println(l1);
 
         l1.remove(l1.size() - 1);
-        System.out.println(l1);
+        System.out.println(l1); */
     }
 
 }//end class LList
